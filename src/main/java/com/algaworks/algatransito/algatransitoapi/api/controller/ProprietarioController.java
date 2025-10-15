@@ -2,10 +2,9 @@ package com.algaworks.algatransito.algatransitoapi.api.controller;
 
 import com.algaworks.algatransito.algatransitoapi.domain.model.Proprietario;
 import com.algaworks.algatransito.algatransitoapi.domain.repository.ProprietarioRepository;
+import jakarta.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -38,7 +37,7 @@ public class ProprietarioController {
 
   @PostMapping
   @ResponseStatus(code = HttpStatus.CREATED)
-  public Proprietario adicionar(@RequestBody Proprietario proprietario) {
+  public Proprietario adicionar(@Valid @RequestBody Proprietario proprietario) {
     return proprietarioRepository.save(proprietario);
   }
 
