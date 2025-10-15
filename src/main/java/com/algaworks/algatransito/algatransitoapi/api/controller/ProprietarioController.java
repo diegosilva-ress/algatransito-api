@@ -45,7 +45,7 @@ public class ProprietarioController {
 
   @PutMapping("/{id}")
   public ResponseEntity<Proprietario> atualizar(@PathVariable Long id,
-      @RequestBody Proprietario proprietario) {
+      @Valid @RequestBody Proprietario proprietario) {
 
     if (proprietarioRepository.existsById(id)) {
       proprietario.setId(id);
