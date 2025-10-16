@@ -1,5 +1,6 @@
 package com.algaworks.algatransito.algatransitoapi.api.controller;
 
+import com.algaworks.algatransito.algatransitoapi.domain.exception.NegocionException;
 import com.algaworks.algatransito.algatransitoapi.domain.model.Proprietario;
 import com.algaworks.algatransito.algatransitoapi.domain.repository.ProprietarioRepository;
 import com.algaworks.algatransito.algatransitoapi.domain.service.ProprietarioService;
@@ -9,6 +10,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -62,6 +64,11 @@ public class ProprietarioController {
       return ResponseEntity.noContent().build();
     }
     return ResponseEntity.notFound().build();
+  }
+
+  @ExceptionHandler(NegocionException.class)
+  public ResponseEntity<String> capturar(NegocionException e) {
+      return ResponseEntity.badRequest().body(e.getMessage());
   }
 
 }
