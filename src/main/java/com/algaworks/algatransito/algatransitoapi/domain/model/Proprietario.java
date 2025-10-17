@@ -1,5 +1,6 @@
 package com.algaworks.algatransito.algatransitoapi.domain.model;
 
+import com.algaworks.algatransito.algatransitoapi.domain.validation.ValidationGroups;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -23,6 +25,7 @@ public class Proprietario {
   @EqualsAndHashCode.Include
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @NotNull(groups = ValidationGroups.ProprietarioId.class)
   private Long id;
 
   @Column(name = "nome")
