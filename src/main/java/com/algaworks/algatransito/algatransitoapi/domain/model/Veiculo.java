@@ -19,6 +19,7 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.groups.ConvertGroup;
 import jakarta.validation.groups.Default;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -56,9 +57,9 @@ public class Veiculo {
   private StatusVeiculo status;
 
   @JsonProperty(access = READ_ONLY)
-  private LocalDateTime dataCadastro;
+  private OffsetDateTime dataCadastro;
 
   @JsonProperty(access = READ_ONLY)
-  private LocalDateTime dataApreensao;
+  private OffsetDateTime dataApreensao;
 
 }

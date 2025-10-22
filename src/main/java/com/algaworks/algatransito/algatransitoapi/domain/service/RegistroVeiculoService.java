@@ -5,11 +5,10 @@ import com.algaworks.algatransito.algatransitoapi.domain.model.Proprietario;
 import com.algaworks.algatransito.algatransitoapi.domain.model.StatusVeiculo;
 import com.algaworks.algatransito.algatransitoapi.domain.model.Veiculo;
 import com.algaworks.algatransito.algatransitoapi.domain.repository.VeiculoRepository;
+import java.time.OffsetDateTime;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @Service
@@ -36,7 +35,7 @@ public class RegistroVeiculoService {
 
     novoVeiculo.setProprietario(proprietario);
     novoVeiculo.setStatus(StatusVeiculo.REGULAR);
-    novoVeiculo.setDataCadastro(LocalDateTime.now());
+    novoVeiculo.setDataCadastro(OffsetDateTime.now());
 
     return veiculoRepository.save(novoVeiculo);
   }
