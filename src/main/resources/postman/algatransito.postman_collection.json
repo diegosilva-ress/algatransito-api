@@ -1,0 +1,258 @@
+{
+	"info": {
+		"_postman_id": "fbb2d811-e8b8-4c99-83b5-4759d1dddbbd",
+		"name": "algatransito",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14888220"
+	},
+	"item": [
+		{
+			"name": "Proprietarios",
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/proprietarios",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"proprietarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/proprietarios/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"proprietarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adicionar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Teste 2\",\r\n    \"email\": \"teste2@teste.com\",\r\n    \"telefone\": \"619999999\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/proprietarios",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"proprietarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Diego teste\",\r\n    \"email\": \"diegoteste@teste.com\",\r\n    \"telefone\": \"619999999\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/proprietarios/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"proprietarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/proprietarios/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"proprietarios",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Veículos",
+			"item": [
+				{
+					"name": "Buscar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/veiculos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"veiculos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/veiculos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"veiculos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adicionar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"proprietario\": {\r\n        \"id\": \"1\"\r\n    },\r\n    \"marca\": \"Honda\",\r\n    \"modelo\": \"Civic\",\r\n    \"placa\": \"PBV4790\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/veiculos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"veiculos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Atuações",
+			"item": [
+				{
+					"name": "Autuações - Adicionar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricao\": \"Avançou sinal vermelho\",\r\n    \"valorMulta\": 450\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/veiculos/1/autuacoes",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"veiculos",
+								"1",
+								"autuacoes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Autuações - Adicionar Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/veiculos/1/autuacoes",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"veiculos",
+								"1",
+								"autuacoes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

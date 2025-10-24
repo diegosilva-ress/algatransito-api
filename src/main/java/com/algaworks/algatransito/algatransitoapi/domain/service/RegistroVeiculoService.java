@@ -1,5 +1,6 @@
 package com.algaworks.algatransito.algatransitoapi.domain.service;
 
+import com.algaworks.algatransito.algatransitoapi.domain.exception.EntidadeNaoEncontradaException;
 import com.algaworks.algatransito.algatransitoapi.domain.exception.NegocioException;
 import com.algaworks.algatransito.algatransitoapi.domain.model.Proprietario;
 import com.algaworks.algatransito.algatransitoapi.domain.model.StatusVeiculo;
@@ -38,6 +39,11 @@ public class RegistroVeiculoService {
     novoVeiculo.setDataCadastro(OffsetDateTime.now());
 
     return veiculoRepository.save(novoVeiculo);
+  }
+
+  public Veiculo buscar(Long veiculoId) {
+    return veiculoRepository.findById(veiculoId)
+        .orElseThrow(() -> new EntidadeNaoEncontradaException("Veículo não encontrado"));
   }
 
 }

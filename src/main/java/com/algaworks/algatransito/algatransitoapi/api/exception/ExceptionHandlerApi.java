@@ -1,12 +1,12 @@
 package com.algaworks.algatransito.algatransitoapi.api.exception;
 
+import com.algaworks.algatransito.algatransitoapi.domain.exception.EntidadeNaoEncontradaException;
 import com.algaworks.algatransito.algatransitoapi.domain.exception.NegocioException;
 import java.net.URI;
 import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
-import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -57,6 +57,15 @@ public class ExceptionHandlerApi extends ResponseEntityExceptionHandler {
     ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.CONFLICT);
     problemDetail.setTitle("Recurso está em uso");
     problemDetail.setType(URI.create("https://algatransito.com/erros/recurso-em-uso"));
+
+    return problemDetail;
+  }
+
+  @ExceptionHandler(EntidadeNaoEncontradaException.class)
+  public ProblemDetail handleEntidadeNaoEncontrada(EntidadeNaoEncontradaException e) {
+    ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.NOT_FOUND);
+    problemDetail.setTitle(e.getMessage());
+    problemDetail.setType(URI.create("https://algatransito.com/erros/nao-encontrado"));
 
     return problemDetail;
   }
